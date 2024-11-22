@@ -1,14 +1,14 @@
 import React from 'react'
-import Header from './partials/Header'
-import Footer from './partials/Footer'
 import Homebanner from './Homebanner'
+import HeaderNav from './pages/backend/partials/HeaderNav'
+import FilmCollection from './FilmCollection'
 
 const Homepage = () => {
   return (
       <>
-      <Header />
+      <HeaderNav />
       <Homebanner/>
-      <Footer/>
+      <FilmCollection />
       </>
   )
 }

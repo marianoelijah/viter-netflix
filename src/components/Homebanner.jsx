@@ -3,6 +3,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { imgPath } from "./helpers/functions-general";
 
+
 const Homebanner = () => {
   return (
     <section>
@@ -10,14 +11,15 @@ const Homebanner = () => {
         <img
           src={`${imgPath}/banner-2.jpg`}
           alt=""
-          className="w-screen h-[calc(z)] object-cover relative"
+          className="w-screen h-[calc(100vh-55px)] object-cover relative"
         />
         <div className="banner-content absolute top-80 left-20 text-white ">
-          <p className="mb-2">
-            2024 Film 1hr 40mins <small>HD</small>
+          <p className="mb-2 text-[18px]">
+            2024 Film 1hr 40mins 
+            <small className="border border-white px-0.5 text-sm">HD</small>
           </p>
-          <h2 className="mb-2">Uglies</h2>
-          <p className="mb-5 max-w-[650px]">
+          <h2 className="mb-2 font-bold">Uglies</h2>
+          <p className="mb-5 max-w-[650px] text-[20px]">
           Uglies is a 2024 American science fiction drama film directed by McG and written 
           by Jacob Forman, Vanessa Taylor, and Whit Anderson. Based on the novel of the 
           same name by Scott Westerfeld, the plot centers around a future post-apocalyptic 

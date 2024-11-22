@@ -1,16 +1,19 @@
 import React from "react";
-import { imgPath } from "../helpers/functions-general";
-import { Link } from "react-router-dom";
+import { imgPath } from "../../../helpers/functions-general";
+import { Link, NavLink } from "react-router-dom";
 import { Search } from "lucide-react";
 
-const Header = () => {
+const HeaderNav = () => {
   return (
-    <section className="bg-primary py-2">
-      <div className="container mx-20">
+    <section className="bg-primary py-4">
+      <div className="container">
         <div className="wrapper flex justify-between items-center">
           <div className="flex gap-10 items-center">
-            <img src={`${imgPath}/header-logo.png`} alt="" />
-            <ul className="flex gap-4 text-white">
+            <NavLink to="/">
+              <img src={`${imgPath}/logo-netflix.png`} alt="" />
+            </NavLink>
+
+            <ul className="flex gap-4 text-white text-[18px]">
               <li>
                 <Link to="/">TV Shows</Link>
               </li>
@@ -26,7 +29,7 @@ const Header = () => {
             </ul>
           </div>
           <div>
-            <Search size={18} stroke="white" />
+            <Search size={20} stroke="white" />
           </div>
         </div>
       </div>
@@ -34,4 +37,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default HeaderNav;

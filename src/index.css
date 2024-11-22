@@ -4,66 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  
-  html {
-    @apply h-full;
-  }
-  
-  body {
-    @apply text-body font-['Poppins']  min-h-screen w-full;
-  }
-  
-  a {
-    @apply no-underline;
-  }
-  
-  ul {
-    @apply list-none;
-  }
-  
-  button {
-    @apply cursor-pointer bg-transparent outline-none;
-  }
-  
-  p {
-    @apply mb-1.5 text-sm text-balance leading-normal;
-  }
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @apply font-bold  leading-normal font-['Poppins'] text-dark;
-  }
-  
-  h1 {
-    @apply text-[clamp(35px,4vw,50px)] leading-none mb-2;
-  }
-  
-  h2 {
-    @apply text-[clamp(28px,4vw,42px)] leading-none mb-2;
-  }
-  
-  h3 {
-    @apply text-[clamp(20px,4vw,38px)] leading-none mb-2;
-  }
-  
-  h4 {
-    @apply text-[clamp(18px,4vw,24px)] leading-none mb-2;
-  }
-  
-  h5 {
-    @apply text-[clamp(14px,4vw,18px)] leading-none mb-2;
-  }
-  
-  img {
-    @apply block;
-  }
-  }
-
-
 :root {
   --accent: 228, 10, 19;
   --light: 255, 255, 255;
@@ -90,125 +30,160 @@
   --success: 14, 165, 38;
   --warning: 211, 180, 14;
   --info: 58, 27, 248;
-  --body: 200, 200, 200;
+  --body: 188, 188, 188;
 }
 
+@layer base {
+  html {
+    @apply h-full;
+  }
 
+  body {
+    @apply text-body font-['Poppins']  min-h-screen w-full;
+  }
+
+  a {
+    @apply no-underline;
+  }
+
+  ul {
+    @apply list-none;
+  }
+
+  button {
+    @apply cursor-pointer bg-transparent outline-none;
+  }
+
+  p {
+    @apply mb-1.5 text-sm text-balance leading-normal;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-bold  leading-normal font-['Poppins'] text-dark;
+  }
+
+  h1 {
+    @apply text-[clamp(35px,4vw,50px)] leading-none mb-2;
+  }
+
+  h2 {
+    @apply text-[clamp(28px,4vw,42px)] leading-none mb-2;
+  }
+
+  h3 {
+    @apply text-[clamp(20px,4vw,38px)] leading-none mb-2;
+  }
+
+  h4 {
+    @apply text-[clamp(18px,4vw,24px)] leading-none mb-2;
+  }
+
+  h5 {
+    @apply text-[clamp(14px,4vw,18px)] leading-none mb-2;
+  }
+
+  img {
+    @apply block;
+  }
+}
 
 @layer components {
   .container {
     @apply max-w-[1800px] mx-auto px-4;
   }
-
   .btn {
-    @apply p-1.5 py-2 border border-transparent flex gap-2 rounded-md transition-all items-center bg-primary;
+    @apply p-1.5 py-2 border border-transparent flex gap-2 rounded-md transition-all items-center bg-primary text-sm;
   }
-
   .btn-add {
     @apply bg-accent text-white hover:bg-opacity-80;
   }
-
+  .btn-alert {
+    @apply bg-accent text-white hover:bg-opacity-80;
+  }
+  .btn-cancel {
+    @apply bg-gray-500 text-white hover:bg-opacity-80;
+  }
+  .btn-warning {
+    @apply bg-warning text-white hover:bg-opacity-80;
+  }
+  .btn-info {
+    @apply bg-info text-white hover:bg-opacity-80;
+  }
   .table-wrapper {
     @apply max-h-[69vh] overflow-y-auto overflow-x-hidden;
   }
-
 
   .table-wrapper table {
     @apply w-full text-left;
   }
 
   .table-wrapper table thead tr {
-    @apply sticky top-0 bg-primary z-30 h-[41px];
+    @apply sticky top-0 bg-primary z-30 py-2.5 h-[41px];
   }
 
-  .table-wrapper table td {
+  .table-wrapper table tbody tr:hover {
+    @apply shadow-[0px_5px_10px_rgba(var(--light),0.2)];
+  }
+
+  .table-wrapper table td,
+  .table-wrapper table th {
     @apply p-1.5 text-sm;
   }
 
   .table-wrapper table tbody tr:nth-child(odd) {
     @apply bg-[#151b25];
   }
+
   .table-wrapper table tbody tr td:first-child {
     @apply w-[30px];
   }
-
   .table-wrapper table tbody tr td:nth-child(2) {
     @apply w-[100px];
   }
-
-  .table-wrapper table tbody tr:hover {
-    @apply shadow-[0px_5px_10px_rgba(var(--light),0.2)]
-  }
-
-  .table-wrapper table tbody td,
-  .table-wrapper table th {
-    @apply p-1.5 text-sm;
-  }
-
-  .btn-add {
-    @apply bg-accent text-white hover:bg-opacity-80;
-  }
-
-  .btn-alert {
-    @apply bg-alert text-white hover:bg-opacity-80;
-  }
-  .btn-cancel {
-    @apply bg-warning text-white hover:bg-opacity-80;
-  }
-
-  .btn-warning {
-    @apply bg-warning text-white hover:bg-opacity-80;
-  }
-
-  .btn-info {
-    @apply bg-info text-white hover:bg-opacity-80;
-  }
-
-
 }
-
 
 @layer utilities {
   .layout-main {
-    @apply h-screen bg-primary
+    @apply h-screen bg-primary;
   }
-
   .layout-division {
-    @apply flex h-full
+    @apply flex h-full;
   }
 
   .layout-division aside {
-    @apply bg-secondary max-w-[200px] w-full
-  }
-
-  .layout-division main {
-    @apply w-full h-full grid grid-rows-[auto,_1fr,]
+    @apply bg-secondary max-w-[200px] w-full;
   }
 
   .layout-division header {
-    @apply bg-secondary
+    @apply bg-secondary;
+  }
+
+  .layout-division main {
+    @apply w-full h-full grid grid-rows-[auto,_1fr,_auto];
   }
   .table-action {
     @apply flex gap-2 justify-end;
   }
-
   .table-action svg {
     @apply w-[70%] hover:stroke-accent;
   }
-
   .tooltip {
     @apply relative;
   }
-
   .tooltip::before {
-    @apply content-[attr(data-tooltip)] z-30 absolute -top-5 left-1/2 -translate-x-1/2 p-0.5 bg-black bg-opacity-80 px-2.5 text-[10px] rounded-md text-white leading-none opacity-0 pointer-events-none transition-all;
+    @apply content-[attr(data-tooltip)] absolute -top-5 left-1/2 -translate-x-1/2 p-1.5
+     bg-black bg-opacity-80 px-2.5 text-[10px] rounded-md 
+     transition-all text-white leading-none opacity-0 pointer-events-none z-30;
   }
 
   .tooltip:hover::before {
-    @apply block;
+    @apply opacity-100;
   }
 
-  
 }
 
 /* width */
