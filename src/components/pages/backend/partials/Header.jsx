@@ -2,8 +2,9 @@ import { Moon, Settings } from 'lucide-react'
 import React from 'react'
 
 const Header = () => {
+    
   return (
-                 <>
+    <>
                     <header className='bg-secondary'>
                         <div className='flex justify-between items-center p-4'>
                             <div className='[&>*]:mb-0  '>

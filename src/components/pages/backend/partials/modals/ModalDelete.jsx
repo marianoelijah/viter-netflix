@@ -1,6 +1,7 @@
 import { Trash2, X } from "lucide-react";
 import React from "react";
 import ModalWrapper from "./ModalWrapper";
+import SpinnerButton from "../spinners/SpinnerButton";
 
 const ModalDelete = () => {
   return (
@@ -19,7 +20,7 @@ const ModalDelete = () => {
               Are you sure you want to remove this movie?
             </p>
             <div className="flex justify-end gap-3 mt-5">
-              <button className="btn btn-alert">Delete</button>
+              <button className="btn btn-alert"><SpinnerButton />Delete</button>
               <button className="btn btn-cancel">Cancel</button>
             </div>
           </div>

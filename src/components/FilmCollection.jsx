@@ -18,7 +18,7 @@ const FilmCollection = () => {
     {
       img: "slider-2.jpg",
       quality: "HD",
-      duration: "1hr 50min",
+      duration: "2hr 30min",
       genre: "Action-Adventure",
       title: "Alita",
     },
@@ -32,7 +32,7 @@ const FilmCollection = () => {
     {
       img: "slider-4.jpg",
       quality: "HD",
-      duration: "1hr 50min",
+      duration: "1hr",
       genre: "Horror",
       title: "Insideous: The Red Door",
     },
