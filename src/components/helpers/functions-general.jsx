@@ -1,1 +1,1 @@
-export const imgPath = "http://localhost/viter-netflix/public/img";
+export const imgPath = "http://localhost/viter-netflix1/public/img";

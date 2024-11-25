@@ -1,8 +1,13 @@
 import { Archive, CircleX, Info, Trash2, X } from "lucide-react";
 import React from "react";
 import ModalWrapper from "./ModalWrapper";
+import { setError } from "@/components/store/storeAction";
 
 const ModalError = () => {
+  
+  const {dispatch } = React.useContext(StoreContext);
+  const handleClose = () => dispatch(setError(false));
+
   return (
     <>
       <ModalWrapper>

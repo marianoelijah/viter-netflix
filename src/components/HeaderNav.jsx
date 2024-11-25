@@ -3,11 +3,11 @@ import { imgPath } from "../../../helpers/functions-general";
 import { Link, NavLink } from "react-router-dom";
 import { Search } from "lucide-react";
 
-const HeaderNav = () => {
+const HeaderNav  = () => {
   return (
-    <section className="bg-primary py-4">
+    <section className="bg-black py-4">
       <div className="container">
-        <div className="wrapper flex justify-between items-center">
+        <div className="wrapper flex justify-between items-center mx-20">
           <div className="flex gap-10 items-center">
             <NavLink to="/">
               <img src={`${imgPath}/logo-netflix.png`} alt="" />

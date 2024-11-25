@@ -1,7 +1,7 @@
 import React from 'react'
-import Homebanner from './Homebanner'
 import HeaderNav from './pages/backend/partials/HeaderNav'
 import FilmCollection from './FilmCollection'
+import Homebanner from './Homebanner'
 
 const Homepage = () => {
   return (

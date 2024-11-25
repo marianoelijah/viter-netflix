@@ -19,7 +19,6 @@ import ModalDelete from "../partials/modals/ModalDelete";
 import ModalConfirm from "../partials/modals/ModalConfirm";
 import ModalValidation from "../partials/modals/ModalValidation";
 import ModalError from "../partials/modals/ModalError";
-import Header from "../partials/Header";
 import ToastSuccess from "../partials/ToastSuccess";
 import LoadMore from "../partials/LoadMore";
 import SpinnerWindows from "../partials/spinners/SpinnerWindows";
@@ -31,20 +30,32 @@ import ModalAddMovie from "./ModalAddMovie";
 import Header2 from "../partials/Header2";
 import MoviesTable from "./MoviesTable";
 import ModalViewMovie from "./ModalViewMovie";
+import { StoreContext } from "@/components/store/storeContext";
+import { setIsAdd, setMessage } from "@/components/store/storeAction";
 
 const Movies = () => {
+  const {dispatch, store } = React.useContext(StoreContext);
+
+    const handleAdd = () => {
+      dispatch(setIsAdd(true));
+    };
+
+  // const { dispatch } = React.useContext(StoreContext);
+
+  // const handleChangeLoadmoreText = () =>  dispatch(setMessage("Loverboy"));
+
   return (
     <>
       <section className="layout-main">
         <div className="layout-division">
-          <SideNavigation />
+          <SideNavigation menu="movies"/>
           <main>
-            <Header2 />
+            <Header2 title="Movies" subtitle="List of available movies" />
             <div className="p-8">
               <div className="flex justify-between items-center ">
                 <SearchBar />
 
-                <button className="btn btn-add">
+                <button className="btn btn-add" onClick={handleAdd}>
                   <Plus size={16} />
                   Add New
                 </button>
@@ -57,14 +68,14 @@ const Movies = () => {
           </main>
         </div>
           </section>
-          {/* <ModalDelete/> */}
-          {/* <ModalConfirm/> */}
-          {/* <ModalValidation/> */}
-          {/* <ModalError/> */}
-          {/* <ToastSuccess /> */}
+          
+          {store.validate && <ModalValidation/>}
+          {store.error && <ModalError/>}
+          {store.isAdd && <ToastSuccess />}
           {/* <SpinnerWindows /> */}
-          {/* <ModalAddMovie /> */}
-          <ModalViewMovie />
+          {store.isAdd && <ModalAddMovie />}
+          {store.isView && <ModalViewMovie />}
+          
     </>
   );
 };

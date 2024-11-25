@@ -1,6 +1,8 @@
+import { StoreContext } from '@/components/store/storeContext'
 import React from 'react'
 
 const LoadMore = () => {
+  const { store } = React.useContext(StoreContext);
   return (
     
     <div className="text-center py-2 mt-5">

@@ -88,7 +88,7 @@ const FilmCollection = () => {
     <section className="film-collection py-3 bg-primary text-white">
       <div className="container">
         <div className="title flex justify-between items-center mt-10">
-          <h2>Top Movies</h2>
+          <h2 className="text-white">Top Movies</h2>
           <ul className="flex gap-4">
             <li>
               <ChevronLeft size={18} />
@@ -104,7 +104,7 @@ const FilmCollection = () => {
           ))}
         </Slider>
         <div className="title flex justify-between items-center mt-10">
-          <h2>Trending Movies</h2>
+          <h2 className="text-white">Trending Movies</h2>
           <ul className="flex gap-4">
             <li>
               <ChevronLeft size={18} />

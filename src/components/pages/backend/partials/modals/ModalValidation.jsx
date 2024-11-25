@@ -1,8 +1,14 @@
 import { Archive, Info, Trash2, X } from "lucide-react";
 import React from "react";
 import ModalWrapper from "./ModalWrapper";
+import { StoreContext } from "@/components/store/storeContext";
+import { setIsDelete, setValidate } from "@/components/store/storeAction";
 
 const ModalValidation = () => {
+
+  const {dispatch } = React.useContext(StoreContext);
+  const handleClose = () => dispatch(setValidate( false));
+  
   return (
     <>
       <ModalWrapper>

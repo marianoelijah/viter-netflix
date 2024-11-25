@@ -1,8 +1,15 @@
 import { Archive, Trash2, X } from "lucide-react";
 import React from "react";
 import ModalWrapper from "./ModalWrapper";
+import { StoreContext } from "@/components/store/storeContext";
+import { setIsConfirm } from "@/components/store/storeAction";
 
 const ModalConfirm = () => {
+
+  const {dispatch} = React.useContext(StoreContext);
+  const handleClose = () => dispatch(setIsConfirm(false));
+
+
   return (
     <>
       <ModalWrapper>
@@ -10,7 +17,7 @@ const ModalConfirm = () => {
           <div className="modeal-header flex gap-2 p-2 items-center border-b border-line mb-2">
             <Archive size={16} stroke={"yellow"} />{" "}
             <span className="text-warning">Confirm</span>
-            <button className="ml-auto">
+            <button className="ml-auto" onClick={(handleClose)}>
               <X />
             </button>
           </div>
@@ -19,8 +26,13 @@ const ModalConfirm = () => {
               Are you sure you want to archive this movie?
             </p>
             <div className="flex justify-end gap-3 mt-5">
-              <button className="btn btn-warning">Archive</button>
-              <button className="btn btn-cancel">Cancel</button>
+              <button className="btn btn-warning">
+                Archive
+              </button>
+              <button className="btn btn-cancel"
+               onClick={handleClose}>
+                Cancel
+              </button>
             </div>
           </div>
         </div>

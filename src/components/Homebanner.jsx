@@ -7,7 +7,7 @@ import { imgPath } from "./helpers/functions-general";
 const Homebanner = () => {
   return (
     <section>
-      <div className="wrapper relative text-white">
+      <div className="wrapper relative bg-black text-white">
         <img
           src={`${imgPath}/banner-2.jpg`}
           alt=""
@@ -18,7 +18,7 @@ const Homebanner = () => {
             2024 Film 1hr 40mins 
             <small className="border border-white px-0.5 text-sm">HD</small>
           </p>
-          <h2 className="mb-2 font-bold">Uglies</h2>
+          <h2 className="mb-2 font-bold text-white text-[50px]">Uglies</h2>
           <p className="mb-5 max-w-[650px] text-[20px]">
           Uglies is a 2024 American science fiction drama film directed by McG and written 
           by Jacob Forman, Vanessa Taylor, and Whit Anderson. Based on the novel of the 
@@ -27,11 +27,11 @@ const Homebanner = () => {
           by enduring extensive cosmetic surgery at the age of 16.
           </p>
           <div className="flex justify-between px-10 max-w-[350px]">
-            <button className="bg-secondary text-white rounded-md flex py-2 px-6 gap-2">
+            <button className="bg-white text-black hover:bg-black hover:text-white rounded-md flex py-2 px-6 gap-2">
               <Play />
               <NavLink to="/">Play</NavLink>
             </button>
-            <button className="bg-white text-black rounded-md flex py-2 px-6 gap-2">
+            <button className="bg-white text-black hover:bg-black hover:text-white rounded-md flex py-2 px-6 gap-2">
               <NavLink to="/">More Info</NavLink>
             </button>
           </div>

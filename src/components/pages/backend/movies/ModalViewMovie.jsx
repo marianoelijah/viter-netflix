@@ -4,6 +4,8 @@ import { imgPath } from '@/components/helpers/functions-general'
 import { Play, Plus, ThumbsUp, X } from 'lucide-react'
 
 const ModalViewMovie = () => {
+    const {dispatch } = React.useContext(StoreContext);
+    const handleClose = () => dispatch(setIsView(false));
   return (
     <>
         <ModalWrapper >
@@ -35,7 +37,7 @@ const ModalViewMovie = () => {
                 <div className='tint absolute bottom-0 left-0 w-full h-[70%] bg-gradient-to-t from-black to-transparent'></div>
             </div>
 
-            <button className='absolute top-3 right-3 size-[2opx] center-all text-dark bg-light rounded-full'>
+            <button className='absolute top-3 right-3 size-[2opx] center-all text-dark bg-light rounded-full' onClick={handleClose}>
                 <X />
             </button>
             
@@ -44,6 +46,8 @@ const ModalViewMovie = () => {
                 <div className='grid grid-cols-[1fr,_250px]'>
                     <div>
                         <ul className='flex gap-3 items-center text-xs'>
+                            <li className='border-[1px] border-dark py-1 px-2.5 text-[12px] leading-none'>
+                            <span className='translate-y-[1px] block'></span>16+</li>
                             <li>2024</li>
                             <li>1hr 44mins</li>
                             <li className='border-[1px] border-dark py-[1px] px-1.5 text-[9px]'>HD</li>
@@ -75,7 +79,8 @@ const ModalViewMovie = () => {
                         <div className='p-4 bg-secondary'>
                             <div className='flex justify-between items-center mb-5'>
                               <ul className='flex gap-3 items-center text-xs'>
-                                  <li>2024</li>
+                              <li className='border-[1px] border-dark py-1 px-2.5 text-[12px] leading-none'>
+                              <span className='translate-y-[1px] block'></span>2024</li>
                                   <li>1hr 44mins</li>
                                   <li className='border-[1px] border-dark py-[1px] px-1.5 text-[9px]'>HD</li>
                               </ul>
