@@ -10,8 +10,10 @@ import IconServerError from "../partials/IconServerError";
 import Category from "./category/Category";
 import Ratings from "./ratings/Ratings";
 import Genre from "./genre/Genre";
+import ModalDelete from "../partials/modals/ModalDelete";
+import ModalConfirm from "../partials/modals/ModalConfirm";
 
-const Settings  = () => {
+const Settings = () => {
   const [tableIndex, setTableIndex] = React.useState(0);
   const tables = [<Category />, <Ratings />, <Genre />];
 
@@ -63,6 +65,7 @@ const Settings  = () => {
           </main>
         </div>
       </section>
+
     </>
   );
 };

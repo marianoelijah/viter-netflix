@@ -1,121 +1,103 @@
 export const setError = (val) => {
     return {
-        type: "ERROR",
-        payload: val,
+      type: "ERROR",
+      payload: val,
     };
-    };
-
-
-    export const setInfo = (val) => {
+  };
+  
+  export const setInfo = (val) => {
     return {
-        type: "INFO",
-        payload: val,
+      type: "INFO",
+      payload: val,
     };
-    };
-
-
-    export const setMessage = (val) => {
+  };
+  
+  export const setMessage = (val) => {
     return {
-        type: "MESSAGE",
-        payload: val,
+      type: "MESSAGE",
+      payload: val,
     };
-    };
-
-
-    export const setValidate = (val) => {
+  };
+  
+  export const setValidate = (val) => {
     return {
-        type: "VALIDATE",
-        payload: val,
+      type: "VALIDATE",
+      payload: val,
     };
-    };
-
-
-    export const setSuccess = (val) => {
+  };
+  
+  export const setSuccess = (val) => {
     return {
-        type: "SUCCESS",
-        payload: val,
+      type: "SUCCESS",
+      payload: val,
     };
-    };
-
-
-    export const setSave = (val) => {
+  };
+  
+  export const setSave = (val) => {
     return {
-        type: "SAVE",
-        payload: val,
+      type: "SAVE",
+      payload: val,
     };
-    };
-
-
-    export const setIsDelete = (val) => {
+  };
+  
+  export const setIsDelete = (val) => {
     return {
-        type: "IS_DELETE",
-        payload: val,
+      type: "IS_DELETE",
+      payload: val,
     };
-    };
-
-
-    export const setIsConfirm = (val) => {
+  };
+  
+  export const setIsConfirm = (val) => {
     return {
-        type: "CONFIRM",
-        payload: val,
+      type: "CONFIRM",
+      payload: val,
     };
-    };
-
-
-    export const setIsRestore = (val) => {
+  };
+  
+  export const setIsRestore = (val) => {
     return {
-        type: "RESTORE",
-        payload: val,
+      type: "RESTORE",
+      payload: val,
     };
-    };
-    export const setIsArchive = (val) => {
+  };
+  export const setIsArchive = (val) => {
     return {
-        type: "IS_ARCHIVE",
-        payload: val,
+      type: "IS_ARCHIVE",
+      payload: val,
     };
-    };
-
-
-    export const setIsEdit = (val) => {
+  };
+  
+  export const setIsEdit = (val) => {
     return {
-        type: "IS_EDIT",
-        payload: val,
+      type: "IS_EDIT",
+      payload: val,
     };
-    };
-
-
-    export const setIsAdd = (val) => {
+  };
+  
+  export const setIsAdd = (val) => {
     return {
-        type: "IS_ADD",
-        payload: val,
+      type: "IS_ADD",
+      payload: val,
     };
-    };
-
-
-    export const setIsView = (val) => {
+  };
+  
+  export const setIsView = (val) => {
     return {
-        type: "IS_VIEW",
-        payload: val,
+      type: "IS_VIEW",
+      payload: val,
     };
-    };
-
-
-    export const setIsSearch = (val) => {
+  };
+  
+  export const setIsSearch = (val) => {
     return {
-        type: "IS_SEARCH",
-        payload: val,
+      type: "IS_SEARCH",
+      payload: val,
     };
-    };
-
-
-    export const setIsAnimating = (val) => {
+  };
+  
+  export const setIsAnimating = (val) => {
     return {
-        type: "IS_ANIMATING",
-        payload: val,
+      type: "IS_ANIMATING",
+      payload: val,
     };
-    };
-
-
-
-
-
+  };

@@ -6,8 +6,7 @@ import { StoreContext } from "@/components/store/storeContext";
 import { setIsDelete } from "@/components/store/storeAction";
 
 const ModalDelete = () => {
-
-  const {dispatch } = React.useContext(StoreContext);
+  const { dispatch } = React.useContext(StoreContext);
   const handleClose = () => dispatch(setIsDelete(false));
 
   return (
@@ -26,8 +25,13 @@ const ModalDelete = () => {
               Are you sure you want to remove this movie?
             </p>
             <div className="flex justify-end gap-3 mt-5">
-              <button className="btn btn-alert" ><SpinnerButton />Delete</button>
-              <button className="btn btn-cancel" onClick={handleClose}>Cancel</button>
+              <button className="btn btn-alert">
+                <SpinnerButton />
+                Delete
+              </button>
+              <button className="btn btn-cancel" onClick={handleClose}>
+                Cancel
+              </button>
             </div>
           </div>
         </div>

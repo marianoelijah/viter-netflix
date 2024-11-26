@@ -2,13 +2,13 @@ import { Moon, Settings, Sun } from "lucide-react";
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Header2  = ({title, subtitle}) => {
+const Header2 = ({ title = "", subtitle = "" }) => {
   const [isDark, setIsDark] = React.useState(
     localStorage.getItem("theme") === "dark" ? true : false
   );
   const [theme, setTheme] = React.useState(localStorage.getItem("theme"));
 
-  const handleTheme = ({ title="", subtitle ="" }) => {
+  const handleTheme = () => {
     setIsDark(!isDark);
     if (isDark) {
       document.querySelector("html").classList.remove("dark");
@@ -30,7 +30,6 @@ const Header2  = ({title, subtitle}) => {
     setThemeColor();
   }, [theme]);
 
-  
   return (
     <header>
       <div className="flex justify-between items-center p-4">
@@ -41,25 +40,28 @@ const Header2  = ({title, subtitle}) => {
 
         <div className="flex items-center gap-6">
           <span>
-            <button className="h-[20px] w-[45px] bg-primary rounded-2xl border border-line px-[2px] hover:border-accent transition-all duration-500" 
-            onClick={handleTheme}
+            <button
+              className="h-[20px] w-[45px] bg-primary rounded-2xl border border-line px-[2px] transition-all duration-500"
+              onClick={handleTheme}
             >
-              <span className={`${isDark ? "" : "translate-x-6"}size-[16px] rounded-full bg-secondary grid place-content-center`}
+              <span
+                className={`${
+                  isDark ? "" : "translate-x-6"
+                } size-[16px] rounded-full bg-secondary grid place-content-center transition-all`}
               >
                 {isDark ? (
-                    <Sun size={14} stroke={'white'} />
+                  <Sun size={14} stroke={"white"} />
                 ) : (
-                    <Moon size={14} stroke={"black"} />
+                  <Moon size={14} stroke={"black"} />
                 )}
               </span>
             </button>
           </span>
-
           <Link to="/admin/settings">
             <Settings />
           </Link>
           <button className="size-[30px] rounded-full bg-accent grid place-content-center text-white">
-            ZM
+            ED
           </button>
         </div>
       </div>

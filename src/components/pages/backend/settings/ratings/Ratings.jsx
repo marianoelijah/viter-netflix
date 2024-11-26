@@ -1,138 +1,135 @@
-import React from 'react'
-import TableLoader from '../../partials/TableLoader'
-import IconServerError from '../../partials/IconServerError'
-import Pills from '../../partials/Pills'
-import { Archive, ArchiveRestore, FilePenLine, FileVideo, Plus, Trash2 } from 'lucide-react'
-import { StoreContext } from '@/components/store/storeContext'
-import { setIsConfirm, setIsDelete } from '@/components/store/storeAction'
-import ModalDelete from '../../partials/modals/ModalDelete'
+import {
+  Archive,
+  ArchiveRestore,
+  FilePenLine,
+  Plus,
+  Trash2,
+} from "lucide-react";
+import React from "react";
+import TableLoader from "../../partials/TableLoader";
+import IconNoData from "../../partials/IconNoData";
+import IconServerError from "../../partials/IconServerError";
+import Pills from "../../partials/Pills";
+import {
+  setIsAdd,
+  setIsConfirm,
+  setIsEdit,
+} from "@/components/store/storeAction";
+import ModalDelete from "../../partials/modals/ModalDelete";
+import ModalConfirm from "../../partials/modals/ModalConfirm";
+import { StoreContext } from "@/components/store/storeContext";
+import ModalAddRatings from "./ModalAddRatings";
 
 const Ratings = () => {
+  const { store, dispatch } = React.useContext(StoreContext);
 
-  const {store, dispatch } = React.useContext(StoreContext);
-    const handleAdd  = () => {
-      dispatch(setIsDelete(true));
-    };
+  const handleAdd = () => {
+    dispatch(setIsAdd(true));
+  };
 
-    const handleDelete = () => {
-      dispatch(setIsDelete(true));
-    };
+  const handleRestore = () => {
+    dispatch(setIsConfirm(true));
+  };
 
-    const handleRestore = () => {
-      dispatch(setIsConfirm(true));
-    };
-
-    const handleArchive = () => {
-      dispatch(setIsConfirm(true));
-    };
+  const handleArchive = () => {
+    dispatch(setIsConfirm(true));
+  };
 
   return (
-    <div className="p-4 bg-primary rounded-md mt-10 border border-line relative">
-      <button className='btn btn-add' onClick={() => handleAdd}>
-        <Plus size={16}/>
-        Add new
-      </button>
-    {/* <SpinnerTable /> */}
-    <div className="table-wrapper custom-scroll">
-      {/* <TableLoader count={20} cols={4}/> */}
-      <table>
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Status</th>
-            <th>Title</th>
-            <th>Ratings</th>
-          </tr>
-        </thead>
-        <tbody>
+    <>
+      <div className="bg-secondary p-4 mt-5 border border-line rounded-md">
+        <button className="btn btn-add" onClick={handleAdd}>
+          <Plus size={16} />
+          Add New
+        </button>
+        <div className="table-wrapper custom-scroll mt-5 max-h-[65vh]">
+          {/* <TableLoader count={10} cols={4} /> */}
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Status</th>
+                <th>Title</th>
+                <th className="text-[10px]">Ratings</th>
+              </tr>
+            </thead>
+            <tbody>
+              {/* <tr>
+                <td colSpan={100}>
+                  <IconNoData />
+                </td>
+              </tr>
+              <tr>
+                <td colSpan={100}>
+                  <IconServerError />
+                </td>
+              </tr> */}
+              {Array.from(Array(25).keys()).map((i) => (
+                <tr key={i}>
+                  <td>{i + 1}.</td>
+                  <td>
+                    <Pills />
+                  </td>
+                  <td>Rom-Com</td>
 
-          {/* <tr>
-            <td colSpan={100}>
-              <IconNoData />
-            </td>
-          </tr> */}
+                  <td>
+                    <ul className="table-action">
+                      {true ? (
+                        <>
+                          <li>
+                            <button
+                              className="tooltip"
+                              data-tooltip="Edit"
+                              onClick={() => handleAdd()}
+                            >
+                              <FilePenLine />
+                            </button>
+                          </li>
+                          <li>
+                            <button
+                              className="tooltip"
+                              data-tooltip="Archive"
+                              onClick={() => handleArchive()}
+                            >
+                              <Archive />
+                            </button>
+                          </li>
+                        </>
+                      ) : (
+                        <>
+                          <li>
+                            <button
+                              className="tooltip"
+                              data-tooltip="Restore"
+                              onClick={() => handleRestore()}
+                            >
+                              <ArchiveRestore />
+                            </button>
+                          </li>
+                          <li>
+                            <button
+                              className="tool-tip"
+                              data-tooltip="Delete"
+                              onClick={() => handleAdd()}
+                            >
+                              <Trash2 />
+                            </button>
+                          </li>
+                        </>
+                      )}
+                    </ul>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      {store.isAdd && <ModalAddRatings />}
+      {store.isDelete && <ModalDelete />}
+      {store.isConfirm && <ModalConfirm />}
+    </>
+  );
+};
 
-          {/* <tr>
-            <td colSpan={100}>
-              <IconServerError />
-            </td>
-          </tr> */}
-
-          {Array.from(Array(7).keys()).map((i) => (
-            <tr key={i}>
-              <td>{i + 1}.</td>
-              <td>
-                <Pills />
-              </td>
-              <td>Wedding Singer</td>
-              <td>1999</td>
-              <td>1hr 40mins</td>
-              <td>
-                <ul className="table-action">
-                  {true ? (
-                    <>
-                      <li>
-                        <button
-                          className="tooltip"
-                          data-tooltip="View"
-                          onClick={() => handleView}
-                        >
-                          <FileVideo />
-                        </button>
-                      </li>
-                      <li>
-                        <button
-                          className="tooltip"
-                          data-tooltip="Edit"
-                          onClick={() => handleAdd}
-                        >
-                          <FilePenLine />
-                        </button>
-                      </li>
-                      <li>
-                        <button
-                          className="tooltip"
-                          data-tooltip="Archive"
-                           onClick={() => handleArchive}
-                        >
-                          <Archive />
-                        </button>
-                      </li>
-                    </>
-                  ) : (
-                    <>
-                      <li>
-                        <button
-                          className="tooltip"
-                          data-tooltip="Restore"
-                          onClick={() => handleRestore}
-                        >
-                          <Restore />
-                        </button>
-                      </li>
-                      <li>
-                        <button
-                          className="tool-tip"
-                          data-tooltip="Delete"
-                          onClick={() => handleDelete}
-                        >
-                          <Trash2 />
-                        </button>
-                      </li>
-                    </>
-                  )}
-                </ul>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  </div>
-  {store.setIsAdd && <ModalAdd/>}
-  {store.isDelete && <ModalDelete/>}
-  {store.isConfirm && <ModalConfirm/>}
-  )
-}
-
-export default Ratings
+export default Ratings;

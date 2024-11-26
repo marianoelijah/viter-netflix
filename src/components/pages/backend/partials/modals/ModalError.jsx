@@ -2,11 +2,11 @@ import { Archive, CircleX, Info, Trash2, X } from "lucide-react";
 import React from "react";
 import ModalWrapper from "./ModalWrapper";
 import { setError } from "@/components/store/storeAction";
+import { StoreContext } from "@/components/store/storeContext";
 
 const ModalError = () => {
-  
-  const {dispatch } = React.useContext(StoreContext);
-  const handleClose = () => dispatch(setError(false));
+    const { dispatch } = React.useContext(StoreContext);
+    const handleClose = () => dispatch(setError(false));
 
   return (
     <>
@@ -17,7 +17,7 @@ const ModalError = () => {
             <h5>Server Error</h5>
             <p className="my-5 text-center">Something went wrong. Please reload the page</p>
 
-            <button className="btn btn-alert w-full flex justify-center">Okay</button>
+            <button className="btn btn-alert w-full flex justify-center" onClick={handleClose}>Okay</button>
           </div>
         </div>
       </ModalWrapper>

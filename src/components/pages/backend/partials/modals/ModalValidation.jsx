@@ -2,13 +2,11 @@ import { Archive, Info, Trash2, X } from "lucide-react";
 import React from "react";
 import ModalWrapper from "./ModalWrapper";
 import { StoreContext } from "@/components/store/storeContext";
-import { setIsDelete, setValidate } from "@/components/store/storeAction";
+import { setValidate } from "@/components/store/storeAction";
 
 const ModalValidation = () => {
-
-  const {dispatch } = React.useContext(StoreContext);
-  const handleClose = () => dispatch(setValidate( false));
-  
+    const { dispatch } = React.useContext(StoreContext);
+    const handleClose  = () => dispatch(setValidate(false));
   return (
     <>
       <ModalWrapper>
@@ -18,7 +16,7 @@ const ModalValidation = () => {
             <h5>Validation Issue</h5>
             <p className="my-5 text-center">The title already exist!</p>
 
-            <button className="btn btn-info w-full justify-center">Okay</button>
+            <button className="btn btn-info w-full justify-center" onClick={handleClose}>Okay</button>
           </div>
         </div>
       </ModalWrapper>
