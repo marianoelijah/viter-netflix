@@ -61,7 +61,7 @@ const Header2 = ({ title = "", subtitle = "" }) => {
             <Settings />
           </Link>
           <button className="size-[30px] rounded-full bg-accent grid place-content-center text-white">
-            ED
+            ZM
           </button>
         </div>
       </div>

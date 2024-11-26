@@ -4,10 +4,23 @@ import { imgPath } from "@/components/helpers/functions-general";
 import { Play, Plus, ThumbsUp, X } from "lucide-react";
 import { StoreContext } from "@/components/store/storeContext";
 import { setIsView } from "@/components/store/storeAction";
+import { movies } from "./datamovies";
 
-const ModalViewMovie = () => {
+const ModalViewMovie = ({ movieInfo }) => {
   const { dispatch } = React.useContext(StoreContext);
   const handleClose = () => dispatch(setIsView(false));
+  const [randomize, setRandomize] = React.useState([]);
+
+  React.useEffect(() => {
+    setRandomize(
+      movies
+        .map((value) => ({ value, sort: Math.random() }))
+        .sort((a, b) => a.sort - b.sort)
+        .map(({ value }) => value)
+    );
+  }, []);
+
+
   return (
     <ModalWrapper>
       <div
@@ -16,13 +29,13 @@ const ModalViewMovie = () => {
       >
         <div className="modal-banner relative">
           <img
-            src={`${imgPath}/banner-2.jpg`}
+            src={`${imgPath}/${movieInfo.movie_image}`}
             alt=""
             className="h-[350px] w-full object-cover"
           />
 
           <div className="absolute bottom-10 left-6 z-50">
-            <h3 className="mb-3">Uglies</h3>
+            <h3 className="mb-3">{movieInfo.movie_title}</h3>
             <ul className="flex gap-2 items-center">
               <li>
                 <button className="flex gap-2 bg-dark px-4 py-1.5 rounded-md text-light">
@@ -56,29 +69,27 @@ const ModalViewMovie = () => {
               <ul className="flex gap-3 items-center text-xs mb-3">
                 <li className="border-[1px] border-dark py-1 px-1.5 text-[9px] leading-none">
                   <span className="translate-y-[0.5px] translate-x-[0.5px] block">
-                    16+
+                    {movieInfo.movie_ratings}
                   </span>
                 </li>
-                <li>2024</li>
-                <li>1hr 44mins</li>
+                <li>{movieInfo.movie_year}</li>
+                <li>{movieInfo.movie_duration}</li>
                 <li className="border-[1px] border-dark p-[0.5px] px-1.5 text-[9px]">
                   HD
                 </li>
               </ul>
               <p className="text-xs leading-relaxed">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Consequatur officiis nemo porro error enim sunt ducimus,
-                laudantium odio? Unde, ut!
+              {movieInfo.movie_summary}
               </p>
             </div>
             <div className="space-y-5 text-xs">
               <p className="text-xs leading-relaxed">
-                <span className="opacity-60 text-[12px]"> Cast: </span>Tally,
-                Shay, David, Peris
+                <span className="opacity-60 text-[12px]"> Cast: </span>{""}
+                {movieInfo.movie_cast}
               </p>
               <p className="text-xs leading-relaxed">
-                <span className="opacity-60 text-[12px]"> Genre: </span>Fiction
-                Fantasy Dystopia Adventure
+                <span className="opacity-60 text-[12px]"> Genre: </span>{""}
+                {movieInfo.movie_genre}
               </p>
             </div>
           </div>
@@ -86,41 +97,42 @@ const ModalViewMovie = () => {
 
         <div className="modal-more p-4">
           <div className="grid grid-cols-3 gap-5">
-            {Array.from(Array(3).keys()).map((i) => (
-              <div className="card rounded-md overflow-hidden">
-                <div className=" relative">
-                  <img
-                    src={`${imgPath}/movie-1.jpg`}
-                    alt=""
-                    className="w-full object-cover h-[120px]"
-                  />
-                  <p className="absolute top-3 right-3 z-40">1h 5mins</p>
-                  <div className="tint bg-gradient-to-b from-[rgba(0,0,0,0.8)] to-transparent absolute top-0 left-0 w-full h-full"></div>
-                </div>
-                <div className="p-4 bg-secondary">
-                  <div className="flex justify-between items-center mb-5">
-                    <ul className="flex gap-3 items-center text-xs">
-                      <li className="border-[1px] border-dark py-1 px-1.5 text-[9px] leading-none">
-                        <span className="translate-y-[0.5px] translate-x-[0.5px] block">
-                          16+
-                        </span>
-                      </li>
-                      <li>2022</li>
-                      <li className="border-[1px] border-dark py-[0.5px] px-1.5 text-[9px]">
-                        HD
-                      </li>
-                    </ul>
-                    <button className="size-[50px] rounded-full border-[1px] border-dark center-all">
-                      <Plus />
-                    </button>
-                  </div>
-                  <p className="text-xs text-balance leading-relaxed">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Eum quibusdam nodi corporis quidem sit porro hic?
-                  </p>
-                </div>
+            {randomize.slice(0, 3).map((item, key) => (
+              <div className="card rounded-md overflow-hidden" key={key}>
+              <div className=" relative">
+                <img
+                  src={`${imgPath}/${item.movie_image}`}
+                  alt=""
+                  className="w-full object-cover h-[120px]"
+                />
+                <p className="absolute top-3 right-3 z-40">{item.movie_duration}</p>
+                <div className="tint bg-gradient-to-b from-[rgba(0,0,0,0.8)] to-transparent absolute top-0 left-0 w-full h-full"></div>
               </div>
+              <div className="p-4 bg-secondary">
+                <div className="flex justify-between items-center mb-5">
+                  <ul className="flex gap-3 items-center text-xs">
+                    <li className="border-[1px] border-dark py-1 px-1.5 text-[9px] leading-none">
+                      <span className="translate-y-[0.5px] translate-x-[0.5px] block">
+                      {item.movie_rating}
+                      </span>
+                    </li>
+                    <li>{item.movie_year}</li>
+                    <li className="border-[1px] border-dark py-[0.5px] px-1.5 text-[9px]">
+                      HD
+                    </li>
+                  </ul>
+                  <button className="size-[50px] rounded-full border-[1px] border-dark center-all">
+                    <Plus />
+                  </button>
+                </div>
+                <p className="text-xs text-balance leading-relaxed line-clamp-3">
+                {movieInfo.movie_summary}
+                </p>
+              </div>
+            </div>
             ))}
+              
+           
           </div>
         </div>
       </div>
